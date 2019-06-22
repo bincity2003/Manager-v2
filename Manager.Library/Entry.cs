@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Backend
+namespace Manager.Library
 {
     public class Entry
     {

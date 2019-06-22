@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Backend
+namespace Manager.Library
 {
     public static class LogWriter
     {
