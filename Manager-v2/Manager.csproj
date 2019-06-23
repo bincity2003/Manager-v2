@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>Manager</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <StartupObject>Manager.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
