@@ -8,11 +8,9 @@ namespace Manager
     public partial class Attendance : Form
     {
         #region Startup and declaration
-
         private List<Period> Periods;
         private BindingSource Source;
         private readonly string EmployeeName;
-
         public Attendance(string name)
         {
             InitializeComponent();
@@ -35,7 +33,6 @@ namespace Manager
             RefreshPanel();
             PushData();
         }
-
         private void AButton_Click(object sender, EventArgs e)
         {
             Period period = new Period(FirstDay.Value, LastDay.Value);
@@ -43,7 +40,6 @@ namespace Manager
             RefreshPanel();
             PushData();
         }
-
         #endregion
 
         #region Miscellaneous function

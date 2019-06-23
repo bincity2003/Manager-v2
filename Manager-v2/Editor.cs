@@ -9,14 +9,12 @@ namespace Manager
     public partial class Editor : Form
     {
         XElement Configs;
-
         public Editor(XElement configs)
         {
             InitializeComponent();
             Configs = configs;
             LoadData();
         }
-
         private void OKButton_Click(object sender, EventArgs e)
         {
             int Count = EText.Lines.Length;
@@ -37,18 +35,14 @@ namespace Manager
             {
                 Configs.Element("employee").Add(new XElement($"e{i}", EText.Lines[i - 1]));
             }
-
             Configs.Element("employee").Attribute("count").Value = Count.ToString();
             Configs.Save("config.xml");
-
             Close();
         }
-
         private void LoadData()
         {
             int Count = int.Parse(Configs.Element("employee").Attribute("count").Value);
             List<string> Employees = new List<string>();
-
             for (int i = 1; i <= Count; i++)
             {
                 Employees.Add(Configs.Element("employee").Element($"e{i}").Value);
@@ -57,7 +51,6 @@ namespace Manager
             {
                 DataSource = Employees
             };
-
             EText.Lines = Employees.ToArray();
         }
     }

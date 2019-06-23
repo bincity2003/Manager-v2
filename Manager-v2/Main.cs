@@ -10,20 +10,16 @@ namespace Manager
     public partial class Main : Form
     {
         #region Data declaration and definition
-
         const string DataPath = "Data";
-        const string Version = "V1.2";
+        const string Version = "V2.0";
         IOManager Manager = new IOManager(DataPath);
         XElement Configs;
-
-        string EmployeeName;
-        List<Entry> Entries;
-        BindingSource source;
-
+        private string EmployeeName;
+        private List<Entry> Entries;
+        private BindingSource source;
         #endregion
 
         #region Startup
-
         public Main()
         {
             InitializeComponent();
@@ -42,19 +38,14 @@ namespace Manager
                 WriteLog("No configs");
                 throw new Exception("Configs missing!");
             }
-
             Configs.Element("version").Value = Version;
             Configs.Save("config.xml");
-
             Text = "Manager - " + Version;
-
             LoadEmployees();
         }
-
         #endregion
 
         #region Control Handler
-
         private void ESelect_SelectedIndexChanged(object sender, EventArgs e)
         {         
             EmployeeName = (string)ESelect.SelectedValue;
@@ -71,7 +62,6 @@ namespace Manager
                 Entries.Remove(Target);
                 AButton.Text = "Add";
             }
-
             Entry entry;
             if (DatePicker.Enabled)
             {
@@ -81,7 +71,6 @@ namespace Manager
             {
                 entry = new Entry(DText.Text, PCheck.Checked, DateTime.Today);
             }
-
             WriteLog("Add new entry: " + entry.Display);
             Entries.Add(entry);
             RefreshPanel();
@@ -125,7 +114,6 @@ namespace Manager
             form.Activate();
             form.Show();
         }
-
         #endregion
 
         #region Miscellaneous Function
@@ -157,7 +145,6 @@ namespace Manager
                     break;
                 }
             }
-
             return Target;
         }
         private void ResetField()
@@ -190,9 +177,6 @@ namespace Manager
         {
             LogWriter.Write("log.txt", data, true);
         }
-
-
         #endregion
-
     }
 }

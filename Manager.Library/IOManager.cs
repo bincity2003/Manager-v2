@@ -8,12 +8,10 @@ namespace Manager.Library
     public class IOManager
     {
         private readonly string Location;
-
         public IOManager(string location)
         {
             Location = location;
         }
-
         public List<Entry> Unpack(string name)
         {
             string Path = GetPath(name);
@@ -43,7 +41,6 @@ namespace Manager.Library
                 return new List<Entry>();
             }
         }
-
         public void Pack(string name, List<Entry> entries)
         {
             string Path = GetPath(name);
@@ -52,7 +49,6 @@ namespace Manager.Library
             File.WriteAllText(Path, Data);
             File.Encrypt(Path);
         }
-
         private string GetPath(string name)
         {
             return Path.Combine(Location, string.Concat(name.Split(' ')) + ".json");
